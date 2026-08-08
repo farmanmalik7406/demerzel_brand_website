@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #11110f;
+  background: #f3efe6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --color-ink: #11110f;
+  --color-charcoal: #1b1d19;
+  --color-forest: #273427;
+  --color-olive: #5f694b;
+  --color-field: #b6a36a;
+  --color-stone: #f3efe6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(243, 239, 230, 0.98), rgba(243, 239, 230, 1)),
+    #f3efe6;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: #b6a36a;
+  color: #11110f;
+}
+
+:focus-visible {
+  outline: 3px solid #b6a36a;
+  outline-offset: 3px;
+}
+
+.reveal {
+  animation: rise 700ms ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
