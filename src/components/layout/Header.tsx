@@ -9,13 +9,13 @@ export function Header() {
   const [showMega, setShowMega] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/95 text-white shadow-soft backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/6 bg-navy/95 text-white shadow-soft backdrop-blur-xl">
       <a className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-field focus:p-3 focus:text-ink" href="#main">
         Skip to content
       </a>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 lg:px-8">
         <Link aria-label="DEMERZEL home" className="group flex items-center gap-3" to="/">
-          <span className="grid h-11 w-11 place-items-center rounded-2xl border border-field/50 bg-white/5 text-sm font-black text-field shadow-sm shadow-field/10">D</span>
+          <span className="grid h-11 w-11 place-items-center rounded-2xl border border-white/5 bg-white/5 text-sm font-black text-field shadow-sm">D</span>
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-white/60">DEMERZEL</p>
             <p className="text-sm font-black tracking-[0.18em] text-white">Field technology</p>
@@ -41,7 +41,7 @@ export function Header() {
           })}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <Link className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-brand hover:bg-brand/10 hover:text-brand" to="/contact">
+          <Link className="rounded-full border border-white/10 bg-brand px-4 py-2 text-sm font-semibold text-ink transition hover:bg-brand/90" to="/contact">
             Contact
           </Link>
         </div>

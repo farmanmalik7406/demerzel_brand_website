@@ -8,15 +8,43 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --color-navy: #0B1D34;
-  --color-forest: #146A3A;
-  --color-brand: #22C55E;
-  --color-charcoal: #111418;
-  --color-offwhite: #F2F0EC;
-  --color-bone: #E9E6DC;
-  --color-shadow: rgba(8, 17, 33, 0.12);
-  --color-text-muted: rgba(17, 20, 24, 0.68);
-  --color-text-soft: rgba(255, 255, 255, 0.84);
+  /* DEMERZEL brand tokens */
+  --demerzel-navy: #0B1D34;
+  --demerzel-forest: #146A3A;
+  --demerzel-green: #22C55E;
+  --demerzel-ink: #111418;
+  --demerzel-offwhite: #F2F0EC;
+  --demerzel-bone: #E9E6DC;
+  --demerzel-field: #B7A662;
+  --demerzel-shadow: rgba(8, 17, 33, 0.12);
+  --demerzel-text-muted: rgba(17, 20, 24, 0.68);
+  --demerzel-text-soft: rgba(255, 255, 255, 0.84);
+
+  /* Spacing & layout */
+  --container-max: 1200px;
+  --container-wide: 1400px;
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+
+  /* Radii & borders */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --thin-border: 1px;
+
+  /* Type scale */
+  --type-h1: 3rem;
+  --type-h2: 2.25rem;
+  --type-h3: 1.5rem;
+  --type-base: 1rem;
+  --type-small: 0.875rem;
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-medium: 260ms;
+  --motion-slow: 700ms;
 }
 
 html {
@@ -26,7 +54,9 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.05), transparent 28%), #F2F0EC;
+  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.05), transparent 28%), var(--demerzel-offwhite);
+  font-family: Inter, ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--demerzel-ink);
 }
 
 img {

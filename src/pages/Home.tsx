@@ -6,6 +6,8 @@ import { ContactCTA } from "../components/sections/ContactCTA";
 import { HomeHero } from "../components/sections/HomeHero";
 import { OpticsShowcase } from "../components/sections/OpticsShowcase";
 import { images } from "../lib/assets";
+import FeaturedBrands from "../components/sections/FeaturedBrands";
+import VanrakshakFeature from "../components/sections/VanrakshakFeature";
 
 const capabilities = [
   {
@@ -49,22 +51,18 @@ export function Home() {
     <>
       <SEO description="DEMERZEL Enterprises blends field technology, precision optics and mission-focused equipment storytelling." title="DEMERZEL Enterprises | Technology for the Field" />
       <HomeHero image={images.hero} />
-      <section className="bg-bone px-5 py-24 lg:px-8">
+
+      <section className="bg-bone px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">Introduction</p>
-              <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">Built for demanding field environments.</h2>
-              <p className="mt-6 max-w-3xl text-xl leading-9 text-charcoal/75">
-                DEMERZEL is a premium field-technology catalogue concept for observation, navigation, monitoring and exploration workflows.
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-charcoal/70">01 / DEMERZEL</p>
+              <h2 className="mt-3 text-4xl font-black text-ink">Field technology across observation, navigation and measurement.</h2>
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-charcoal/75">Catalogue-sourced products and solutions for wildlife monitoring, surveying, aerial systems and specialised field equipment.</p>
             </div>
-            <div className="rounded-[2rem] border border-ink/10 bg-white p-10 shadow-soft">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-forest">Field portfolio</p>
-              <div className="mt-6 space-y-4 text-sm leading-7 text-charcoal/75">
-                <p>Mission-oriented equipment categories are grounded in the supplied catalogue material.</p>
-                <p>Optics and observation are framed through the Vanrakshak catalogue, while navigation and monitoring speak to field applications.</p>
-              </div>
+            <div className="rounded-[1.25rem] border border-ink/10 bg-white p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">How the catalogue is organised</p>
+              <p className="mt-4 text-sm text-charcoal/75">Browse by product family, brand, application and technical specifications drawn from the canonical catalogue files.</p>
             </div>
           </div>
         </div>
@@ -130,6 +128,23 @@ export function Home() {
           </div>
         </div>
       </section>
+      <OpticsShowcase />
+      <FeaturedBrands />
+      <section className="bg-offwhite px-5 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">Applications</p>
+            <h2 className="mt-3 text-3xl font-black text-ink">Field scenarios and solutions</h2>
+            <p className="mt-3 text-sm text-charcoal/75">Explore application-led discovery routes and related catalogue products.</p>
+          </div>
+          {/* Solutions list is rendered by a simple map to keep editorial rhythm */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {/* Solutions will be populated from the solutions data on client side via existing components where available */}
+          </div>
+        </div>
+      </section>
+
+      <VanrakshakFeature />
       <section className="bg-navy px-5 py-20 text-white lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
