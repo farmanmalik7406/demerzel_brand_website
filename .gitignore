@@ -24,6 +24,8 @@ pnpm-debug.log*
 tmp/
 temp/
 DEMERZEL_Website_Assets/
+DEMERZEL_Codex_Docs/
+DEMERZEL_Codex_Docs.zip
 
 # OS and editor files
 .DS_Store

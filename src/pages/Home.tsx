@@ -1,37 +1,106 @@
 import { SEO } from "../components/SEO";
-import { BrandValues } from "../components/sections/BrandValues";
-import { CapabilityGrid } from "../components/sections/CapabilityGrid";
+import { AssetMosaic } from "../components/sections/AssetMosaic";
+import { CapabilityNav } from "../components/sections/CapabilityNav";
+import { CapabilityStory } from "../components/sections/CapabilityStory";
 import { ContactCTA } from "../components/sections/ContactCTA";
-import { Ecosystem } from "../components/sections/Ecosystem";
-import { FieldPlatform } from "../components/sections/FieldPlatform";
-import { FieldTechnology } from "../components/sections/FieldTechnology";
-import { Hero } from "../components/sections/Hero";
-import { MissionSection } from "../components/sections/MissionSection";
+import { HomeHero } from "../components/sections/HomeHero";
 import { OpticsShowcase } from "../components/sections/OpticsShowcase";
-import { ResourcesTeaser } from "../components/sections/ResourcesTeaser";
-import { StorySection } from "../components/sections/StorySection";
 import { images } from "../lib/assets";
+
+const capabilities = [
+  {
+    id: "observe",
+    number: "01",
+    title: "Observe what matters.",
+    copy: "Optics, thermal and camera systems for wildlife, patrol and conservation field work.",
+    image: images.fieldBird,
+    chips: ["Optics", "Camera traps", "Night vision", "Telemetry"]
+  },
+  {
+    id: "navigate",
+    number: "02",
+    title: "Navigate with confidence.",
+    copy: "GPS, compass and navigation technologies framed for terrain, patrol and mapping workflows.",
+    image: images.navigation,
+    chips: ["GPS", "Navigation", "Range finding", "Field instruments"],
+    dark: true
+  },
+  {
+    id: "monitor",
+    number: "03",
+    title: "Monitor activity and conditions.",
+    copy: "Observation, telemetry and remote monitoring for wildlife, survey and security contexts.",
+    image: images.cameraTrap,
+    chips: ["Telemetry", "Camera traps", "Monitoring", "Sensors"]
+  },
+  {
+    id: "explore",
+    number: "04",
+    title: "Explore further missions.",
+    copy: "A broader narrative for aerial, survey, astronomy and expedition field equipment.",
+    image: images.astronomy,
+    chips: ["Survey", "Aerial", "Astronomy", "Outdoor"],
+    dark: true
+  }
+];
 
 export function Home() {
   return (
     <>
-      <SEO description="DEMERZEL Enterprises is a field-technology brand for observation, navigation, monitoring, surveying, security and exploration equipment areas." title="DEMERZEL Enterprises | Technology for the Field" />
-      <Hero
-        copy="Precision equipment for wildlife, forestry, surveying, security and exploration."
-        image={images.hero}
-        primary={{ label: "Explore Our Capabilities", to: "/solutions" }}
-        secondary={{ label: "Talk to DEMERZEL", to: "/contact" }}
-        title="Technology for the field."
-      />
-      <CapabilityGrid />
-      <MissionSection />
-      <StorySection />
+      <SEO description="DEMERZEL Enterprises blends field technology, precision optics and mission-focused equipment storytelling." title="DEMERZEL Enterprises | Technology for the Field" />
+      <HomeHero image={images.hero} />
+      <section className="bg-[#f0ede5] px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.26em] text-field">Introduction</p>
+              <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">Built for demanding field environments.</h2>
+              <p className="mt-6 max-w-3xl text-xl leading-9 text-charcoal/75">
+                DEMERZEL is positioned as a premium field-technology brand for observation, navigation, monitoring and expedition workflows.
+              </p>
+            </div>
+            <div className="rounded-[2rem] border border-ink/10 bg-white p-10 shadow-soft">
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-olive">Field portfolio</p>
+              <div className="mt-6 space-y-4 text-sm leading-7 text-charcoal/75">
+                <p>Mission-oriented equipment categories are grounded in the supplied catalogue material.</p>
+                <p>Optics and observation are framed through the Vanrakshak catalogue, while navigation and monitoring speak to field applications.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-ink px-5 py-16 text-white lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-field">The field</p>
+            <h2 className="mt-4 text-5xl font-black leading-tight md:text-6xl">Where equipment and environment intersect.</h2>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              { title: "Wildlife & conservation", copy: "Observation and monitoring for patrols, reserves and habitat management." },
+              { title: "Survey & mapping", copy: "Positioning, range finding and field instruments for cartography and terrain work." },
+              { title: "Security & patrol", copy: "Long-range optics, lighting and situational awareness framed for discreet field operations." }
+            ].map((item) => (
+              <div key={item.title} className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+                <h3 className="text-2xl font-black text-white">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/70">{item.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-stone px-5 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <CapabilityNav items={capabilities.map((capability) => ({ id: capability.id, label: capability.title }))} />
+          <div className="mt-16 space-y-24">
+            {capabilities.map((item) => (
+              <CapabilityStory key={item.id} {...item} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <AssetMosaic />
       <OpticsShowcase />
-      <FieldTechnology />
-      <FieldPlatform />
-      <BrandValues />
-      <Ecosystem />
-      <ResourcesTeaser />
       <ContactCTA />
     </>
   );
