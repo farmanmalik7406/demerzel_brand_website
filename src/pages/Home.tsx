@@ -77,15 +77,46 @@ export function Home() {
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {[
-              { title: "Wildlife & conservation", copy: "Observation and monitoring for patrols, reserves and habitat management." },
-              { title: "Survey & mapping", copy: "Positioning, range finding and field instruments for cartography and terrain work." },
-              { title: "Security & patrol", copy: "Long-range optics, lighting and situational awareness framed for discreet field operations." }
+              { title: "Wildlife & conservation", copy: "Observation and monitoring for patrols, reserves and large-scale habitat work." },
+              { title: "Survey & mapping", copy: "Positioning, range finding and field instruments for site, terrain and asset planning." },
+              { title: "Security & patrol", copy: "Long-range optics, lighting and awareness for discreet field operations." }
             ].map((item) => (
               <div key={item.title} className="rounded-[2rem] border border-white/10 bg-white/5 p-8">
                 <h3 className="text-2xl font-black text-white">{item.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/70">{item.copy}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-stone px-5 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[2rem] border border-ink/10 bg-white p-10 shadow-soft">
+            <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-olive">Technical ecosystem</p>
+                <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">Technology categories that shape the field story.</h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-charcoal/75">
+                  DEMERZEL does not sell a generic stack. It connects optics, navigation, monitoring, survey and exploration categories into a coherent field platform.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  "Optics",
+                  "Navigation",
+                  "Monitoring",
+                  "Thermal",
+                  "Survey",
+                  "Astronomy",
+                  "Aerial",
+                  "Field instruments"
+                ].map((item) => (
+                  <span key={item} className="rounded-full border border-ink/10 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-ink">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
