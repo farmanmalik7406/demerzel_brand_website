@@ -1,6 +1,6 @@
 import { SEO } from "../components/SEO";
 import { ContactCTA } from "../components/sections/ContactCTA";
-import { FieldComingSoon } from "../components/sections/FieldComingSoon";
+import { FieldPlatform } from "../components/sections/FieldPlatform";
 import { Hero } from "../components/sections/Hero";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { solutions } from "../data/solutions";
@@ -33,7 +33,7 @@ export function About() {
           </div>
         </div>
       </section>
-      <FieldComingSoon />
+      <FieldPlatform />
       <ContactCTA />
     </>
   );

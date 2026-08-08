@@ -19,15 +19,15 @@ export function Footer() {
           <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-field">Company</h2>
           <div className="mt-5 grid gap-3">
             <Link className="text-white/70 hover:text-white" to="/about">About</Link>
-            <Link className="text-white/70 hover:text-white" to="/coming-soon">Projects</Link>
+            <Link className="text-white/70 hover:text-white" to="/projects">Projects</Link>
             <Link className="text-white/70 hover:text-white" to="/contact">Contact</Link>
           </div>
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-field">Future</h2>
           <div className="mt-5 grid gap-3 text-white/70">
-            <Link className="hover:text-white" to="/coming-soon">DEMERZEL FIELD</Link>
-            <span>Coming Soon</span>
+            <Link className="hover:text-white" to="/field">DEMERZEL FIELD</Link>
+            <span>Platform direction</span>
           </div>
         </div>
       </div>
@@ -35,8 +35,8 @@ export function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 text-sm text-white/55 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>Copyright {new Date().getFullYear()} DEMERZEL Enterprises.</p>
           <div className="flex gap-5">
-            <Link to="/coming-soon">Privacy</Link>
-            <Link to="/coming-soon">Terms</Link>
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
           </div>
         </div>
       </div>

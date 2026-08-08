@@ -1,16 +1,16 @@
 export const navItems = [
-  { label: "Products", to: "/coming-soon" },
+  { label: "Products", to: "/products" },
   { label: "Solutions", to: "/solutions" },
-  { label: "Industries", to: "/solutions" },
-  { label: "Brands", to: "/coming-soon" },
-  { label: "Projects", to: "/coming-soon" },
+  { label: "Industries", to: "/industries" },
+  { label: "Brands", to: "/brands" },
+  { label: "Projects", to: "/projects" },
   { label: "Resources", to: "/resources" },
   { label: "About", to: "/about" }
 ];
 
 export const footerExplore = [
-  { label: "Products", to: "/coming-soon" },
+  { label: "Products", to: "/products" },
   { label: "Solutions", to: "/solutions" },
-  { label: "Industries", to: "/solutions" },
+  { label: "Industries", to: "/industries" },
   { label: "Resources", to: "/resources" }
 ];

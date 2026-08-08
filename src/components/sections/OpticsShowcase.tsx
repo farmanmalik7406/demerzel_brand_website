@@ -22,7 +22,7 @@ export function OpticsShowcase() {
             ))}
           </div>
           <div className="mt-9">
-            <Button to="/coming-soon" variant="dark">Explore the optics</Button>
+            <Button to="/products" variant="dark">Explore the optics</Button>
           </div>
         </div>
       </div>

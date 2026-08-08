@@ -3,7 +3,7 @@ import { BrandValues } from "../components/sections/BrandValues";
 import { CapabilityGrid } from "../components/sections/CapabilityGrid";
 import { ContactCTA } from "../components/sections/ContactCTA";
 import { Ecosystem } from "../components/sections/Ecosystem";
-import { FieldComingSoon } from "../components/sections/FieldComingSoon";
+import { FieldPlatform } from "../components/sections/FieldPlatform";
 import { FieldTechnology } from "../components/sections/FieldTechnology";
 import { Hero } from "../components/sections/Hero";
 import { MissionSection } from "../components/sections/MissionSection";
@@ -28,7 +28,7 @@ export function Home() {
       <StorySection />
       <OpticsShowcase />
       <FieldTechnology />
-      <FieldComingSoon />
+      <FieldPlatform />
       <BrandValues />
       <Ecosystem />
       <ResourcesTeaser />

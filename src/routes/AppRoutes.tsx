@@ -1,10 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import { MainLayout } from "../components/layout/MainLayout";
 import { About } from "../pages/About";
-import { ComingSoon } from "../pages/ComingSoon";
+import { Brands } from "../pages/Brands";
 import { Contact } from "../pages/Contact";
+import { Field } from "../pages/Field";
 import { Home } from "../pages/Home";
+import { Industries } from "../pages/Industries";
+import { Legal } from "../pages/Legal";
 import { NotFound } from "../pages/NotFound";
+import { Products } from "../pages/Products";
+import { Projects } from "../pages/Projects";
 import { Resources } from "../pages/Resources";
 import { SolutionDetail } from "../pages/SolutionDetail";
 import { Solutions } from "../pages/Solutions";
@@ -15,11 +20,17 @@ export function AppRoutes() {
       <Route element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route element={<About />} path="about" />
+        <Route element={<Products />} path="products" />
         <Route element={<Solutions />} path="solutions" />
         <Route element={<SolutionDetail />} path="solutions/:slug" />
+        <Route element={<Industries />} path="industries" />
+        <Route element={<Brands />} path="brands" />
+        <Route element={<Projects />} path="projects" />
+        <Route element={<Field />} path="field" />
         <Route element={<Resources />} path="resources" />
         <Route element={<Contact />} path="contact" />
-        <Route element={<ComingSoon />} path="coming-soon" />
+        <Route element={<Legal type="privacy" />} path="privacy" />
+        <Route element={<Legal type="terms" />} path="terms" />
         <Route element={<NotFound />} path="*" />
       </Route>
     </Routes>
