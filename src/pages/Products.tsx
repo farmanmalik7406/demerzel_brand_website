@@ -1,14 +1,14 @@
 import { Binoculars, Camera, Compass, Crosshair, Flashlight, Map, Moon, Plane, RadioTower, Telescope } from "lucide-react";
 import { SEO } from "../components/SEO";
 import { ContactCTA } from "../components/sections/ContactCTA";
-import { Hero } from "../components/sections/Hero";
+import CatalogueHero from "../components/sections/CatalogueHero";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { images } from "../lib/assets";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FiltersPanel from "../components/catalogue/FiltersPanel";
 import ProductGrid from "../components/catalogue/ProductGrid";
-import { searchProducts, getAllProducts } from "../lib/products";
+import { searchProducts, getAllProducts, getCategories, getApplications } from "../lib/products";
 
 const areas = [
   { title: "Optics", icon: Binoculars, copy: "Binocular and observation families including DRISHTI, TEJAS, CHAKOR, RAKSHAK, VANRAAJ and NAKSHATRA." },
@@ -57,39 +57,64 @@ export function Products() {
   return (
     <>
       <SEO description="Explore DEMERZEL product areas across optics, navigation, wildlife monitoring, surveying, drones, thermal imaging, lighting and astronomy." title="Product Areas | DEMERZEL Enterprises" />
-      <Hero copy="A brand-level map of DEMERZEL field-technology categories, grounded in the supplied catalogue references." eyebrow="Products" image={images.opticsWide} title="Field equipment areas." />
+      <CatalogueHero />
+      <section className="bg-offwhite px-5 py-8 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[1.25rem] border border-ink/10 bg-white p-6 shadow-soft">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/60">Search</p>
+                <p className="mt-2 text-sm text-charcoal/70">Search products, brands & applications</p>
+              </div>
+              <div className="mt-3 w-full lg:mt-0 lg:w-1/2">
+                <div className="relative">
+                  <input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search products, brands & applications..."
+                    className="w-full rounded-2xl border border-ink/10 bg-bone px-4 py-3 pl-12 text-sm text-ink outline-none transition placeholder:text-charcoal/40 focus:border-brand focus:ring-2 focus:ring-brand/20"
+                    aria-label="Search products"
+                  />
+                  {query && (
+                    <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-charcoal/60">Clear</button>
+                  )}
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-charcoal/60">🔍</div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6">
+              <div className="flex flex-wrap gap-3">
+                {getCategories().map((c) => (
+                  <button key={c} onClick={() => { const p = new URLSearchParams(location.search); p.set("category", c); navigate({ pathname: location.pathname, search: p.toString() }); }} className="rounded-full border border-ink/10 bg-bone px-3 py-2 text-sm font-semibold text-charcoal/80">{c}</button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-offwhite px-5 py-12 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[300px_1fr]">
-            <div className="rounded-[2rem] border border-ink/10 bg-white p-8 shadow-soft">
-              <div className="mb-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">Product discovery</p>
-                <h2 className="mt-3 text-3xl font-black text-ink">Search across catalogue families and applications.</h2>
-                <p className="mt-4 text-sm leading-7 text-charcoal/75">Refine by brand, catalogue area and mission context as you explore the DEMERZEL equipment universe.</p>
+          <div className="grid gap-10 lg:grid-cols-[320px_1fr]">
+            <div>
+              <div className="rounded-[1.25rem] border border-ink/10 bg-white p-6 shadow-soft">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">Filters</p>
+                <div className="mt-6">
+                  <FiltersPanel />
+                </div>
               </div>
-              <FiltersPanel />
             </div>
             <div>
-              <div className="rounded-[2rem] border border-ink/10 bg-white p-8 shadow-soft">
+              <div className="rounded-[1.25rem] border border-ink/10 bg-white p-6 shadow-soft">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/60">Explore equipment</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink/60">CATALOGUE / ALL PRODUCTS</p>
                     <p className="mt-2 text-sm text-charcoal/70">Showing {results.length} products.</p>
                   </div>
                   <div className="text-sm text-charcoal/60">Catalogue reference only</div>
                 </div>
                 <div className="mt-6">
-                  <input
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search equipment, brand, series or application..."
-                    className="w-full rounded-3xl border border-ink/10 bg-bone px-5 py-4 text-sm text-ink outline-none transition placeholder:text-charcoal/40 focus:border-brand focus:ring-2 focus:ring-brand/20"
-                    aria-label="Search products"
-                  />
+                  <ProductGrid products={results} />
                 </div>
-              </div>
-              <div className="mt-8">
-                <ProductGrid products={results} />
               </div>
             </div>
           </div>
