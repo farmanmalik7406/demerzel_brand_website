@@ -3,17 +3,20 @@
 @tailwind utilities;
 
 :root {
-  color: #11110f;
-  background: #f3efe6;
+  color: #111418;
+  background: #F2F0EC;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --color-ink: #11110f;
-  --color-charcoal: #1b1d19;
-  --color-forest: #273427;
-  --color-olive: #5f694b;
-  --color-field: #b6a36a;
-  --color-stone: #f3efe6;
+  --color-navy: #0B1D34;
+  --color-forest: #146A3A;
+  --color-brand: #22C55E;
+  --color-charcoal: #111418;
+  --color-offwhite: #F2F0EC;
+  --color-bone: #E9E6DC;
+  --color-shadow: rgba(8, 17, 33, 0.12);
+  --color-text-muted: rgba(17, 20, 24, 0.68);
+  --color-text-soft: rgba(255, 255, 255, 0.84);
 }
 
 html {
@@ -23,9 +26,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    linear-gradient(180deg, rgba(243, 239, 230, 0.98), rgba(243, 239, 230, 1)),
-    #f3efe6;
+  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.05), transparent 28%), #F2F0EC;
 }
 
 img {
