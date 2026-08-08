@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getBrands, getAllProducts } from "../../lib/products";
+import { Reveal } from "../ui/Reveal";
 
 export function FeaturedBrands() {
   const brands = getBrands();
@@ -9,12 +10,12 @@ export function FeaturedBrands() {
   return (
     <section className="bg-offwhite px-5 py-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8">
+        <Reveal className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">BRANDS / 04</p>
           <h2 className="mt-3 text-4xl font-black text-ink">A broader equipment ecosystem.</h2>
           <p className="mt-4 text-sm text-charcoal/75">Browse catalogue brands represented in DEMERZEL's product set.</p>
-        </div>
-        <div className="flex gap-6 overflow-x-auto py-4">
+        </Reveal>
+        <Reveal className="flex gap-6 overflow-x-auto py-4">
           {brands.map((b) => {
             const count = all.filter((p) => p.brand === b).length;
             return (
@@ -25,7 +26,7 @@ export function FeaturedBrands() {
               </Link>
             );
           })}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

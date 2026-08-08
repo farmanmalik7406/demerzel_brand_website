@@ -1,0 +1,36 @@
+{
+  "project": "DEMERZEL - Hero Image Generation",
+  "generation_date": "2026-08-09",
+  "notes": "Photorealistic editorial field-technology images. Follow the repository rules: no invented branding elements, avoid AI/SaaS aesthetics, prefer natural field contexts, navy and green palette overlays for composition.",
+  "heroes": [
+    {
+      "id": "primary",
+      "filename_desktop": "public/assets/generated/hero-primary-desktop.jpg",
+      "filename_mobile": "public/assets/generated/hero-primary-mobile.jpg",
+      "prompt": "Cinematic wide-angle photograph of rugged field-technology equipment in a natural landscape at golden hour, high resolution, shallow depth of field background, strong leading lines, muted earthy tones with deep navy and subtle oxidized green accents, composition framed for desktop 16:7, realistic textures, no logos, no text, believable weathering, lens: 35mm, lighting: warm rim light, mood: confident and precise. Capture human scale by including a technician silhouette 15-20 meters away.",
+      "negative_prompt": "no logos, no text overlays, no futuristic sci-fi elements, no obvious stock-photo compositing, avoid high-saturation neon colors, avoid studio-lit look"
+    },
+    {
+      "id": "optics_feature",
+      "filename_desktop": "public/assets/generated/hero-optics-desktop.jpg",
+      "filename_mobile": "public/assets/generated/hero-optics-mobile.jpg",
+      "prompt": "Close-to-mid telephoto photograph of an optics rig (telephoto lens and sensor unit) mounted in the field, crisp details on the optics, soft panorama background, cool tonal balance with navy-blue cast and green accents, strong highlight on glass elements, photorealistic, 85mm lens feel, shallow depth of field, composition suitable for editorial hero. No visible brand labels or text.",
+      "negative_prompt": "no logos, no CGI, no text, no product renders"
+    },
+    {
+      "id": "survey_drone",
+      "filename_desktop": "public/assets/generated/hero-drone-desktop.jpg",
+      "filename_mobile": "public/assets/generated/hero-drone-mobile.jpg",
+      "prompt": "Aerial perspective photograph of a rugged survey drone flying above a textured landscape (fields/terrain), golden-hour light, high dynamic range, natural colors with deep navy-green toning in shadows, strong sense of scale, unobtrusive human presence (operator on ground), photorealistic, composition framed for hero use, no logos, no text.",
+      "negative_prompt": "no logos, no sci-fi, no busy clutter, avoid overtly stylized filters"
+    }
+  ],
+  "recommended_settings": {
+    "resolution_desktop": "3840x1680",
+    "resolution_mobile": "1200x1600",
+    "sampler": "ddim or k_lms",
+    "steps": 28,
+    "cfg_scale": 7.0,
+    "seed": "random (record each run)"
+  }
+}

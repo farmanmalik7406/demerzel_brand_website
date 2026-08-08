@@ -1,5 +1,5 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { navItems } from "../../data/navigation";
 import ProductsMegaMenu from "../navigation/ProductsMegaMenu";
@@ -7,9 +7,34 @@ import ProductsMegaMenu from "../navigation/ProductsMegaMenu";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [showMega, setShowMega] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const hoverTimeout = useRef<number | null>(null);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!showMega) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowMega(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [showMega]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/6 bg-navy/95 text-white shadow-soft backdrop-blur-xl">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 backdrop-blur-xl ${
+        scrolled ? "h-16 bg-navy border-b border-white/10 shadow-soft" : "h-24 bg-transparent"
+      } text-white`}
+    >
       <a className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-field focus:p-3 focus:text-ink" href="#main">
         Skip to content
       </a>
@@ -25,8 +50,29 @@ export function Header() {
           {navItems.map((item) => {
             if (item.label === "Products") {
               return (
-                <div key={item.label} className="relative" onMouseEnter={() => setShowMega(true)} onMouseLeave={() => setShowMega(false)}>
-                  <NavLink className={({ isActive }) => `text-sm font-semibold text-white/75 transition hover:text-white ${isActive ? "text-brand" : ""}`} to={item.to}>
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (hoverTimeout.current) window.clearTimeout(hoverTimeout.current);
+                    hoverTimeout.current = window.setTimeout(() => setShowMega(true), 80);
+                  }}
+                  onMouseLeave={() => {
+                    if (hoverTimeout.current) window.clearTimeout(hoverTimeout.current);
+                    hoverTimeout.current = window.setTimeout(() => setShowMega(false), 150);
+                  }}
+                >
+                  <NavLink
+                    aria-expanded={showMega}
+                    onFocus={() => setShowMega(true)}
+                    onBlur={() => {
+                      // small delay to allow focus to move into megamenu
+                      if (hoverTimeout.current) window.clearTimeout(hoverTimeout.current);
+                      hoverTimeout.current = window.setTimeout(() => setShowMega(false), 200);
+                    }}
+                    className={({ isActive }) => `text-sm font-semibold text-white/75 transition hover:text-white ${isActive ? "text-brand" : ""}`}
+                    to={item.to}
+                  >
                     {item.label}
                   </NavLink>
                   {showMega && <ProductsMegaMenu />}
@@ -57,17 +103,27 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <div className="border-t border-white/10 bg-ink/95 lg:hidden" id="mobile-nav">
-          <nav aria-label="Mobile navigation" className="mx-auto grid max-w-7xl gap-1 px-5 py-5">
-            {navItems.map((item) => (
-              <Link className="rounded-3xl bg-white/5 px-4 py-4 text-lg font-semibold text-white transition hover:bg-white/10" key={item.label} onClick={() => setOpen(false)} to={item.to}>
-                {item.label}
+        <div className="fixed inset-0 z-60 flex flex-col bg-navy/98 lg:hidden" id="mobile-nav">
+          <div className="mx-auto mt-20 w-full max-w-lg px-6">
+            <nav aria-label="Mobile navigation" className="grid gap-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  onClick={() => setOpen(false)}
+                  to={item.to}
+                  className="block rounded-2xl bg-white/5 py-5 px-5 text-2xl font-semibold text-white/95 text-center transition"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Link onClick={() => setOpen(false)} to="/contact" className="mt-4 block rounded-full bg-brand py-4 text-center font-semibold text-ink">
+                Contact
               </Link>
-            ))}
-            <Link className="mt-3 rounded-full bg-brand px-4 py-4 text-center font-semibold text-ink" onClick={() => setOpen(false)} to="/contact">
-              Contact
-            </Link>
-          </nav>
+            </nav>
+          </div>
+          <div className="mt-auto px-6 pb-12 text-center">
+            <button onClick={() => setOpen(false)} className="text-sm text-white/60">Close</button>
+          </div>
         </div>
       )}
     </header>

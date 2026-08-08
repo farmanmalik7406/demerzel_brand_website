@@ -3,7 +3,10 @@ const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 export const asset = (path: string) => `${basePath}/assets/${path}`;
 
 export const images = {
-  hero: asset("catalogue-pages/vanrakshak/vanrakshak-page-01.jpg"),
+  // Primary hero image (switched to selected product image)
+  hero: asset("product-images/vanrakshak/vanrakshak-p10-img01.png"),
+  // Previous catalogue alternates preserved
+  hero_alt: asset("catalogue-pages/vanrakshak/vanrakshak-page-02.jpg"),
   opticsWide: asset("product-images/vanrakshak/vanrakshak-p03-img01.png"),
   astronomy: asset("product-images/vanrakshak/vanrakshak-p13-img01.jpeg"),
   fieldBird: asset("product-images/vanrakshak/vanrakshak-p01-img01.png"),

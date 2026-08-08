@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import products from "../../data/products";
 import { images } from "../../lib/assets";
+import { Reveal } from "../ui/Reveal";
 
 export function VanrakshakFeature() {
   const brand = "Vanrakshak";
@@ -22,19 +23,19 @@ export function VanrakshakFeature() {
               <Link to="/brands/vanrakshak" className="inline-flex items-center gap-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink">EXPLORE VANRAKSHAK →</Link>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[1.25rem] overflow-hidden border border-ink/10">
-              <img src={images.opticProduct} alt="Vanrakshak sample" className="h-72 w-full object-cover" />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Reveal className="rounded-[1.25rem] overflow-hidden border border-ink/10">
+                <img src={images.opticProduct} alt="Vanrakshak sample" className="h-72 w-full object-cover" />
+              </Reveal>
+              <Reveal className="space-y-3">
+                {families.map((f) => (
+                  <div key={f} className="rounded-xl border border-ink/10 bg-white p-4">
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-ink">{f}</div>
+                    <div className="mt-2 text-sm text-charcoal/75">Catalogue family — {items.filter(i => i.series === f).length} products</div>
+                  </div>
+                ))}
+              </Reveal>
             </div>
-            <div className="space-y-3">
-              {families.map((f) => (
-                <div key={f} className="rounded-xl border border-ink/10 bg-white p-4">
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-ink">{f}</div>
-                  <div className="mt-2 text-sm text-charcoal/75">Catalogue family — {items.filter(i => i.series === f).length} products</div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
