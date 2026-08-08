@@ -49,18 +49,18 @@ export function Home() {
     <>
       <SEO description="DEMERZEL Enterprises blends field technology, precision optics and mission-focused equipment storytelling." title="DEMERZEL Enterprises | Technology for the Field" />
       <HomeHero image={images.hero} />
-      <section className="bg-[#f0ede5] px-5 py-24 lg:px-8">
+      <section className="bg-bone px-5 py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.26em] text-field">Introduction</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">Introduction</p>
               <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">Built for demanding field environments.</h2>
               <p className="mt-6 max-w-3xl text-xl leading-9 text-charcoal/75">
-                DEMERZEL is positioned as a premium field-technology brand for observation, navigation, monitoring and expedition workflows.
+                DEMERZEL is a premium field-technology catalogue concept for observation, navigation, monitoring and exploration workflows.
               </p>
             </div>
             <div className="rounded-[2rem] border border-ink/10 bg-white p-10 shadow-soft">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-olive">Field portfolio</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-forest">Field portfolio</p>
               <div className="mt-6 space-y-4 text-sm leading-7 text-charcoal/75">
                 <p>Mission-oriented equipment categories are grounded in the supplied catalogue material.</p>
                 <p>Optics and observation are framed through the Vanrakshak catalogue, while navigation and monitoring speak to field applications.</p>
@@ -69,10 +69,10 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-ink px-5 py-16 text-white lg:px-8">
+      <section className="bg-navy px-5 py-16 text-white lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-field">The field</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand/80">The field</p>
             <h2 className="mt-4 text-5xl font-black leading-tight md:text-6xl">Where equipment and environment intersect.</h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
@@ -89,15 +89,15 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-stone px-5 py-16 lg:px-8">
+      <section className="bg-offwhite px-5 py-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="rounded-[2rem] border border-ink/10 bg-white p-10 shadow-soft">
             <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-olive">Technical ecosystem</p>
-                <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">Technology categories that shape the field story.</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">Technical ecosystem</p>
+                <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">Categories that shape the field story.</h2>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-charcoal/75">
-                  DEMERZEL does not sell a generic stack. It connects optics, navigation, monitoring, survey and exploration categories into a coherent field platform.
+                  DEMERZEL connects optics, navigation, monitoring, survey and exploration categories into a coherent field platform.
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
@@ -111,7 +111,7 @@ export function Home() {
                   "Aerial",
                   "Field instruments"
                 ].map((item) => (
-                  <span key={item} className="rounded-full border border-ink/10 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-ink">
+                  <span key={item} className="rounded-full border border-ink/10 bg-ink/5 px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-ink">
                     {item}
                   </span>
                 ))}
@@ -120,7 +120,7 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-stone px-5 py-16 lg:px-8">
+      <section className="bg-bone px-5 py-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <CapabilityNav items={capabilities.map((capability) => ({ id: capability.id, label: capability.title }))} />
           <div className="mt-16 space-y-24">
@@ -130,10 +130,10 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-ink px-5 py-20 text-white lg:px-8">
+      <section className="bg-navy px-5 py-20 text-white lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-field">DEMERZEL FIELD</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand/80">DEMERZEL FIELD</p>
             <h2 className="mt-4 text-5xl font-black leading-tight md:text-6xl">A platform direction for equipment and mission workflows.</h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
               The brand story extends beyond optics. DEMERZEL FIELD captures equipment, observations, mapping and support as a future field-technology ecosystem.

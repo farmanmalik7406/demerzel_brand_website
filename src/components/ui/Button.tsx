@@ -14,8 +14,8 @@ export function Button({ to, children, variant = "primary", type = "button" }: B
     "inline-flex min-h-12 items-center justify-center gap-2 rounded-md border px-5 py-3 text-sm font-semibold transition duration-300",
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4",
     "group",
-    variant === "primary" && "border-transparent bg-field text-ink shadow-sm shadow-olive/10 hover:bg-[#c3b174] focus-visible:outline-white",
-    variant === "secondary" && "border border-white/30 bg-white/5 text-white hover:border-white hover:bg-white/10",
+    variant === "primary" && "border-transparent bg-brand text-ink shadow-sm shadow-brand/20 hover:bg-brand/90 focus-visible:outline-brand",
+    variant === "secondary" && "border border-white/30 bg-white/5 text-white hover:border-brand hover:bg-white/10",
     variant === "dark" && "border-transparent bg-ink text-white hover:bg-forest"
   ]
     .filter(Boolean)
