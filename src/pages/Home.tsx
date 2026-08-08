@@ -124,9 +124,35 @@ export function Home() {
         <div className="mx-auto max-w-7xl">
           <CapabilityNav items={capabilities.map((capability) => ({ id: capability.id, label: capability.title }))} />
           <div className="mt-16 space-y-24">
-            {capabilities.map((item) => (
-              <CapabilityStory key={item.id} {...item} />
+            {capabilities.map((item, index) => (
+              <CapabilityStory key={item.id} {...item} reverse={index % 2 !== 0} />
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-ink px-5 py-20 text-white lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-field">DEMERZEL FIELD</p>
+            <h2 className="mt-4 text-5xl font-black leading-tight md:text-6xl">A platform direction for equipment and mission workflows.</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
+              The brand story extends beyond optics. DEMERZEL FIELD captures equipment, observations, mapping and support as a future field-technology ecosystem.
+            </p>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {[
+                "Equipment tracking",
+                "Mission planning",
+                "Operational observation",
+                "Technical records"
+              ].map((item) => (
+                <div key={item} className="rounded-[1.5rem] border border-white/10 bg-white/5 px-6 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-white">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-soft">
+            <img className="h-full w-full object-cover object-center" src={images.telescope} alt="Field equipment perspective" loading="lazy" />
           </div>
         </div>
       </section>

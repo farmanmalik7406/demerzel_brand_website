@@ -7,14 +7,17 @@ type CapabilityStoryProps = {
   copy: string;
   image: string;
   chips: string[];
+  reverse?: boolean;
   dark?: boolean;
 };
 
-export function CapabilityStory({ id, number, title, copy, image, chips, dark }: CapabilityStoryProps) {
+export function CapabilityStory({ id, number, title, copy, image, chips, reverse, dark }: CapabilityStoryProps) {
+  const orderClass = reverse ? "lg:grid-cols-[1.05fr_.95fr]" : "lg:grid-cols-[.95fr_1.05fr]";
+
   return (
     <section id={id} className={`relative overflow-hidden ${dark ? "bg-ink text-white" : "bg-stone text-ink"}`}>
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[.95fr_1.05fr] lg:px-8">
-        <div className={`relative flex flex-col justify-center gap-8 rounded-[2rem] border p-10 shadow-soft ${dark ? "border-white/10 bg-white/[0.04]" : "border-ink/10 bg-white/95"}`}>
+      <div className={`mx-auto grid max-w-7xl gap-10 px-5 py-24 ${orderClass} lg:px-8`}>
+        <div className={`relative flex flex-col justify-center gap-8 rounded-[2rem] border p-10 shadow-soft ${dark ? "border-white/10 bg-white/[0.04]" : "border-ink/10 bg-white/95"} ${reverse ? "lg:order-2" : ""}`}>
           <div className="space-y-4">
             <p className={`text-xs font-bold uppercase tracking-[0.26em] ${dark ? "text-field" : "text-olive"}`}>{number} / capability</p>
             <p className={`text-4xl font-black uppercase leading-tight ${dark ? "text-white" : "text-ink"}`}>{title}</p>
