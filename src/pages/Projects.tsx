@@ -14,8 +14,8 @@ const steps = [
 export function Projects() {
   return (
     <>
-      <SEO description="DEMERZEL project approach for field-technology enquiries, equipment mapping and source-grounded technical planning." title="Projects | DEMERZEL Enterprises" />
-      <Hero copy="A project page for field-technology conversations, not invented deployments or customer claims." eyebrow="Projects" image={images.navigation} title="Start with the field problem." />
+      <SEO description="DEMERZEL project approach for field-equipment enquiries, catalogue mapping and source-grounded technical planning." title="Projects | DEMERZEL Enterprises" />
+      <Hero copy="A project page for equipment conversations rooted in the current catalogue and field application context." eyebrow="Projects" image={images.navigation} title="Start with the field problem." />
       <section className="bg-stone px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map(([title, Icon, copy]) => (

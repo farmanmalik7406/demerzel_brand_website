@@ -13,8 +13,8 @@ const resources = [
 export function Resources() {
   return (
     <>
-      <SEO description="DEMERZEL resources for catalogues, guides and future technical documents." title="Resources | DEMERZEL Enterprises" />
-      <Hero copy="A concise resource area for catalogues, guides and technical material as the DEMERZEL platform grows." eyebrow="Resources" image={images.opticProduct} title="Technical resources." />
+      <SEO description="Browse DEMERZEL catalogue resources, guides and technical references for the current product set." title="Resources | DEMERZEL Enterprises" />
+      <Hero copy="A concise resource area for catalogue references, product guidance and technical material." eyebrow="Resources" image={images.opticProduct} title="Technical resources." />
       <section className="bg-stone px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
           {resources.map(({ title, copy, icon: Icon }) => (

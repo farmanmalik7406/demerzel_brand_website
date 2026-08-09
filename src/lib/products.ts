@@ -90,6 +90,47 @@ export function getProductCopy(product: Product): string {
   return specs ? `${product.name} with ${specs}.` : product.name;
 }
 
+export function getProductFeatures(product: Product): string[] {
+  if (product.features && product.features.length > 0) {
+    return product.features;
+  }
+
+  const specMap = new Map(product.specifications.map((specification) => [specification.key, specification]));
+  const features: string[] = [];
+
+  const prism = specMap.get("prism");
+  if (prism && typeof prism.value === "string") {
+    features.push(`${prism.value} prism`);
+  }
+
+  const lensCoating = specMap.get("lens_coating");
+  if (lensCoating && typeof lensCoating.value === "string") {
+    features.push(`${lensCoating.value} lens coating`);
+  }
+
+  const prismCoating = specMap.get("prism_coating");
+  if (prismCoating && typeof prismCoating.value === "string" && prismCoating.value !== prism?.value) {
+    features.push(`${prismCoating.value} prism coating`);
+  }
+
+  const waterproof = specMap.get("waterproof");
+  if (waterproof?.value === "Yes") {
+    features.push("Waterproof");
+  }
+
+  const nitrogenFilled = specMap.get("nitrogen_filled");
+  if (nitrogenFilled?.value === "Yes") {
+    features.push("Nitrogen-filled");
+  }
+
+  const carryingCase = specMap.get("carrying_case");
+  if (carryingCase?.value === "Yes") {
+    features.push("Carrying case included");
+  }
+
+  return features;
+}
+
 export function getFeaturedProducts(limit = 6): Product[] {
   const ranked = [...products].sort((a, b) => {
     const score = (product: Product) => {

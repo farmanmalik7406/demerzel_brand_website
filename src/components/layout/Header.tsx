@@ -105,7 +105,7 @@ export function Header() {
               </div>
 
               <div className="text-[10px] font-medium uppercase tracking-[0.25em] text-brand">
-                Field technology
+                Optics & field equipment
               </div>
             </div>
           </Link>

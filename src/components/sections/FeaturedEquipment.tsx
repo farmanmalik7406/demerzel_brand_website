@@ -16,10 +16,10 @@ export function FeaturedEquipment() {
         <Reveal className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.26em] text-field">Featured equipment</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight md:text-5xl">Representative optics from the catalogue.</h2>
+            <h2 className="mt-4 text-4xl font-black leading-tight md:text-5xl">Representative optics from the current catalogue.</h2>
           </div>
           <p className="max-w-3xl text-base leading-8 text-white/68">
-            Selected from products with strong imagery, richer specifications and family coverage, this sequence gives the homepage a curated technical rhythm before the fuller discovery index.
+            The featured items below reflect the stronger product imagery, fuller specifications and family coverage in the current catalogue.
           </p>
         </Reveal>
 

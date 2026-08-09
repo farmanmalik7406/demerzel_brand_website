@@ -8,8 +8,8 @@ import { images } from "../lib/assets";
 export function Solutions() {
   return (
     <>
-      <SEO description="Explore DEMERZEL field-technology solution areas for wildlife, forestry, survey and mapping, security, research and outdoor exploration." title="Solutions | DEMERZEL Enterprises" />
-      <Hero copy="Explore brand-level field-technology applications before the future product catalogue phase." eyebrow="Solutions" image={images.astronomy} title="Equipment organized by mission." />
+      <SEO description="Explore DEMERZEL applications for wildlife, forestry, survey, security, research and outdoor observation." title="Solutions | DEMERZEL Enterprises" />
+      <Hero copy="Browse equipment by application, from wildlife observation to forestry patrol and outdoor viewing." eyebrow="Applications" image={images.astronomy} title="Equipment by application." />
       <section className="bg-stone px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-3">
           {solutions.map((solution) => (

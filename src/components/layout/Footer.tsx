@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr] lg:px-8">
         <div>
           <Link className="text-xl font-black tracking-[0.16em]" to="/">DEMERZEL</Link>
-          <p className="mt-4 max-w-sm text-lg text-white/70">Technology for the field.</p>
+          <p className="mt-4 max-w-sm text-lg text-white/70">Optics and field equipment from the DEMERZEL catalogue.</p>
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-field">Explore</h2>
@@ -27,7 +27,7 @@ export function Footer() {
           <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-field">Future</h2>
           <div className="mt-5 grid gap-3 text-white/70">
             <Link className="hover:text-white" to="/field">DEMERZEL FIELD</Link>
-            <span>Platform direction</span>
+            <span>Field context and equipment direction</span>
           </div>
         </div>
       </div>

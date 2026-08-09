@@ -13,7 +13,7 @@ export function FieldPlatform() {
         <div>
           <p className="text-3xl font-black leading-tight md:text-5xl">Your equipment. Your field. One platform.</p>
           <p className="mt-6 max-w-2xl text-xl leading-9 text-white/72">
-            A future ecosystem concept for field operations, equipment, observations, mapping, reports and service workflows. This phase introduces the direction only.
+            A platform direction for organizing field equipment, observations and operational context around the current catalogue.
           </p>
           <div className="mt-9">
             <Button to="/field">Explore DEMERZEL FIELD</Button>

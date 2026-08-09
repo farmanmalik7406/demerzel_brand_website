@@ -12,17 +12,17 @@ export function Contact() {
 
   return (
     <>
-      <SEO description="Contact DEMERZEL Enterprises through a frontend enquiry interface prepared for a future contact system." title="Contact DEMERZEL Enterprises" />
+      <SEO description="Contact DEMERZEL Enterprises for product information, catalogue enquiries and field-equipment questions." title="Contact DEMERZEL Enterprises" />
       <section className="bg-ink px-5 pb-24 pt-36 text-white lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-field">Contact</p>
-            <h1 className="mt-4 text-6xl font-black leading-tight md:text-8xl">Let's talk about the field.</h1>
-            <p className="mt-7 text-xl leading-9 text-white/72">Tell us what you're trying to observe, navigate, monitor or explore.</p>
+            <h1 className="mt-4 text-6xl font-black leading-tight md:text-8xl">Contact DEMERZEL.</h1>
+            <p className="mt-7 text-xl leading-9 text-white/72">Tell us which product family, application or specification you are reviewing.</p>
             <div className="mt-10 grid gap-4 text-white/70">
               <p>Email: contact@demerzel.example</p>
-              <p>Phone: Available after commercial confirmation</p>
-              <p>Location: DEMERZEL location details pending confirmation</p>
+              <p>Product enquiries: catalogue and specification support</p>
+              <p>Use the form for product information requests.</p>
             </div>
           </div>
           <form className="rounded-md bg-stone p-6 text-ink shadow-soft md:p-8" onSubmit={onSubmit}>
@@ -37,7 +37,7 @@ export function Contact() {
               <Button type="submit" variant="dark">Contact DEMERZEL</Button>
               {submitted && (
                 <p className="rounded-md border border-olive/30 bg-white px-4 py-3 font-semibold text-forest">
-                  Thank you. Your enquiry interface is ready for DEMERZEL's future contact system.
+                  Thank you. Your enquiry has been captured for DEMERZEL's catalogue follow-up.
                 </p>
               )}
             </div>

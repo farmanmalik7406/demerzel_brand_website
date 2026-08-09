@@ -16,8 +16,8 @@ const modules = [
 export function Field() {
   return (
     <>
-      <SEO description="DEMERZEL FIELD platform direction for equipment, observations, mapping, reports and service workflows." title="DEMERZEL FIELD | Platform Direction" />
-      <Hero copy="Your equipment. Your field. One platform direction for field operations, equipment, observations, mapping, reports and service." eyebrow="DEMERZEL FIELD" image={images.astronomy} title="The field ecosystem." />
+      <SEO description="DEMERZEL FIELD is presented as a platform direction for field equipment, observation and operational context." title="DEMERZEL FIELD | Platform Direction" />
+      <Hero copy="A simple platform direction for organizing equipment, observation and field context around catalogue information." eyebrow="DEMERZEL FIELD" image={images.astronomy} title="Field context and equipment." />
       <section className="bg-stone px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2 lg:grid-cols-3">
           {modules.map(([title, Icon, copy]) => (

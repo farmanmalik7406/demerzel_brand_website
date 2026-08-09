@@ -18,9 +18,9 @@ function HomeApplications() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">Applications</p>
-          <h2 id="applications-heading" className="mt-3 text-4xl font-black text-ink">Equipment solutions by use case.</h2>
+          <h2 id="applications-heading" className="mt-3 text-4xl font-black text-ink">Equipment by application.</h2>
           <p className="mt-4 text-sm leading-7 text-charcoal/75">
-            Discover how DEMERZEL's equipment supports specific field applications: wildlife observation, forestry operations, survey and mapping, research, security monitoring and outdoor exploration.
+            Browse the catalogue by field use: wildlife observation, forestry patrol, survey work, security monitoring and outdoor viewing.
           </p>
         </div>
 
@@ -78,8 +78,8 @@ export function Home() {
   return (
     <>
       <SEO
-        title="DEMERZEL Enterprises | Field Technology & Equipment"
-        description="Explore DEMERZEL for specialist optical equipment and binoculars from Vanrakshak. Curated by application, technical specifications and field use case."
+        title="DEMERZEL Enterprises | Field Equipment & Optics"
+        description="Browse DEMERZEL's catalogue of Vanrakshak binoculars and field equipment, organized by product family, application and technical specification."
         image={images.hero}
         structuredData={structuredData}
       />
@@ -91,10 +91,10 @@ export function Home() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-charcoal/70">About DEMERZEL</p>
               <h2 id="brand-positioning-heading" className="mt-3 text-4xl font-black leading-tight text-ink">
-                Specialist field technology and equipment.
+                Equipment for field observation and outdoor work.
               </h2>
               <p className="mt-4 max-w-3xl text-lg leading-8 text-charcoal/75">
-                DEMERZEL provides optical equipment and binoculars organized by product family, application and technical specification. Current catalogue focus: Vanrakshak optical systems for wildlife observation, field work and outdoor exploration.
+                DEMERZEL presents a catalogue of optical equipment and binoculars from Vanrakshak, grouped by product family, application and technical specifications.
               </p>
             </div>
             <div className="rounded-lg border border-ink/10 bg-white p-7">
@@ -119,7 +119,6 @@ export function Home() {
       </section>
 
       <FeaturedEquipment />
-      <CategoryNav />
       <FeaturedBrands />
       <HomeApplications />
 
@@ -127,9 +126,9 @@ export function Home() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand/80">Complete Catalogue</p>
-            <h2 id="catalogue-heading" className="mt-4 text-5xl font-black leading-tight md:text-6xl">Browse all products and specifications.</h2>
+            <h2 id="catalogue-heading" className="mt-4 text-5xl font-black leading-tight md:text-6xl">Browse the catalogue by product and application.</h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
-              Explore {productCount} equipment items across {brands.length} brand{brands.length === 1 ? "" : "s"}, with detailed specifications, technical data and application information to support your equipment selection.
+              Explore {productCount} catalogue entries across {brands.length} brand{brands.length === 1 ? "" : "s"}, with specifications and application notes for field use.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link to="/products" className="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-ink hover:bg-brand/90">
@@ -141,7 +140,7 @@ export function Home() {
             </div>
           </div>
           <div className="overflow-hidden rounded-lg border border-white/10 bg-white/5">
-            <img className="h-full min-h-[360px] w-full object-cover object-center" src={images.telescope} alt="Catalogue image of field optics and exploration equipment" loading="lazy" />
+            <img className="h-full min-h-[360px] w-full object-cover object-center" src={images.telescope} alt="Vanrakshak field optics catalogue image" loading="lazy" />
           </div>
         </div>
       </section>

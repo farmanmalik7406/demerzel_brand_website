@@ -10,6 +10,7 @@ export function FiltersPanel() {
 
   const params = new URLSearchParams(search);
   const activeBrand = params.get("brand") || "";
+  const activeCategory = params.get("category") || "";
 
   function selectBrand(b: string) {
     const p = new URLSearchParams(search);
@@ -17,6 +18,16 @@ export function FiltersPanel() {
       p.delete("brand");
     } else {
       p.set("brand", b);
+    }
+    navigate({ pathname, search: p.toString() });
+  }
+
+  function selectCategory(c: string) {
+    const p = new URLSearchParams(search);
+    if (c === "") {
+      p.delete("category");
+    } else {
+      p.set("category", c);
     }
     navigate({ pathname, search: p.toString() });
   }
@@ -42,9 +53,24 @@ export function FiltersPanel() {
       <div className="rounded-lg border border-ink/10 bg-white p-4 shadow-soft">
         <h4 className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">Category</h4>
         <div className="mt-3 grid gap-2">
-          {categories.map((c) => (
-            <button key={c} className="flex items-center justify-between rounded-md border border-ink/8 bg-bone px-3 py-2 text-sm font-semibold text-charcoal/80">{c}<span className="text-xs text-charcoal/60" /></button>
-          ))}
+          <button
+            onClick={() => selectCategory("")}
+            className={`flex items-center justify-between rounded-md border px-3 py-2 text-sm font-semibold transition ${!activeCategory ? "bg-brand text-ink border-brand" : "bg-bone text-charcoal/80 border-ink/8 hover:bg-bone/90"}`}
+          >
+            All
+          </button>
+          {categories.map((c) => {
+            const active = activeCategory.toLowerCase() === c.toLowerCase();
+            return (
+              <button
+                key={c}
+                onClick={() => selectCategory(c.toLowerCase())}
+                className={`flex items-center justify-between rounded-md border px-3 py-2 text-sm font-semibold transition ${active ? "bg-brand text-ink border-brand" : "bg-bone text-charcoal/80 border-ink/8 hover:bg-bone/90"}`}
+              >
+                {c}
+              </button>
+            );
+          })}
         </div>
       </div>
     </aside>

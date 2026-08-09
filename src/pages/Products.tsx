@@ -3,12 +3,11 @@ import { SEO } from "../components/SEO";
 import { ContactCTA } from "../components/sections/ContactCTA";
 import CatalogueHero from "../components/sections/CatalogueHero";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { images } from "../lib/assets";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FiltersPanel from "../components/catalogue/FiltersPanel";
 import ProductGrid from "../components/catalogue/ProductGrid";
-import { searchProducts, getAllProducts, getCategories, getApplications } from "../lib/products";
+import { searchProducts, getCategories, getProductBySlug } from "../lib/products";
 
 const areas = [
   { title: "Optics", icon: Binoculars, copy: "Binocular and observation families including DRISHTI, TEJAS, CHAKOR, RAKSHAK, VANRAAJ and NAKSHATRA." },
@@ -36,27 +35,52 @@ export function Products() {
   const navigate = useNavigate();
   const params = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const initialQ = params.get("q") || "";
-  const initialBrand = params.get("brand") || "";
+  const brand = params.get("brand") || "";
+  const category = params.get("category") || "";
+  const application = params.get("application") || "";
+  const compare = params.get("compare") || "";
   const [query, setQuery] = useState(initialQ);
-  const [brand] = useState(initialBrand);
-  const [results, setResults] = useState(() => getAllProducts());
+
+  useEffect(() => {
+    const urlQuery = params.get("q") || "";
+    if (urlQuery !== query) {
+      setQuery(urlQuery);
+    }
+  }, [params, query]);
+
+  const compareIds = useMemo(() => compare.split(",").filter(Boolean), [compare]);
+  const compareProducts = useMemo(
+    () => compareIds
+      .map((id) => getProductBySlug(id))
+      .filter((product): product is NonNullable<ReturnType<typeof getProductBySlug>> => Boolean(product)),
+    [compareIds]
+  );
+
+  const results = useMemo(() => {
+    if (compareProducts.length > 0) {
+      return compareProducts;
+    }
+
+    const filters: any = {};
+    if (brand) filters.brand = brand;
+    if (category) filters.category = category;
+    if (application) filters.application = application;
+    return searchProducts(query, filters);
+  }, [query, brand, category, application, compareProducts]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      const filters: any = {};
-      if (brand) filters.brand = brand;
-      const items = searchProducts(query, filters);
-      setResults(items);
       const p = new URLSearchParams(location.search);
-      if (query) p.set("q", query); else p.delete("q");
+      if (query) p.set("q", query);
+      else p.delete("q");
       navigate({ pathname: location.pathname, search: p.toString() }, { replace: true });
     }, 180);
     return () => clearTimeout(timeout);
-  }, [query, brand]);
+  }, [query, location.search, navigate, location.pathname]);
 
   return (
     <>
-      <SEO description="Explore DEMERZEL product areas across optics, navigation, wildlife monitoring, surveying, drones, thermal imaging, lighting and astronomy." title="Product Areas | DEMERZEL Enterprises" />
+      <SEO description="Explore DEMERZEL product areas across optics, navigation, wildlife monitoring, surveying, drones, thermal imaging, lighting and astronomy." title="Products | DEMERZEL Enterprises" />
       <CatalogueHero />
       <section className="bg-offwhite px-5 py-8 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -84,9 +108,22 @@ export function Products() {
             </div>
             <div className="mt-6">
               <div className="flex flex-wrap gap-3">
-                {getCategories().map((c) => (
-                  <button key={c} onClick={() => { const p = new URLSearchParams(location.search); p.set("category", c); navigate({ pathname: location.pathname, search: p.toString() }); }} className="rounded-full border border-ink/10 bg-bone px-3 py-2 text-sm font-semibold text-charcoal/80">{c}</button>
-                ))}
+                {getCategories().map((c) => {
+                  const active = category.toLowerCase() === c.toLowerCase();
+                  return (
+                    <button
+                      key={c}
+                      onClick={() => {
+                        const p = new URLSearchParams(location.search);
+                        p.set("category", c.toLowerCase());
+                        navigate({ pathname: location.pathname, search: p.toString() });
+                      }}
+                      className={`rounded-full border px-3 py-2 text-sm font-semibold transition ${active ? "border-brand bg-brand text-ink" : "border-ink/10 bg-bone text-charcoal/80 hover:bg-bone/90"}`}
+                    >
+                      {c}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -97,7 +134,7 @@ export function Products() {
           <div className="grid gap-10 lg:grid-cols-[320px_1fr]">
             <div>
               <div className="rounded-[1.25rem] border border-ink/10 bg-white p-6 shadow-soft">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">Filters</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">Filter the catalogue</p>
                 <div className="mt-6">
                   <FiltersPanel />
                 </div>
@@ -107,11 +144,36 @@ export function Products() {
               <div className="rounded-[1.25rem] border border-ink/10 bg-white p-6 shadow-soft">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink/60">CATALOGUE / ALL PRODUCTS</p>
-                    <p className="mt-2 text-sm text-charcoal/70">Showing {results.length} products.</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink/60">CATALOGUE</p>
+                    <p className="mt-2 text-sm text-charcoal/70">
+                      {compareProducts.length > 0
+                        ? `Showing ${compareProducts.length} selected products for comparison.`
+                        : `Showing ${results.length} products.`}
+                    </p>
                   </div>
                   <div className="text-sm text-charcoal/60">Catalogue reference only</div>
                 </div>
+                {compareProducts.length > 0 && (
+                  <div className="mt-6 rounded-[1.25rem] border border-brand/20 bg-brand/5 p-4">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand">Product comparison active</p>
+                        <p className="mt-1 text-sm text-charcoal/70">Review selected items from the catalogue.</p>
+                        <p className="mt-3 text-sm text-ink">{compareProducts.map((product) => product.name).join(" · ")}</p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          const p = new URLSearchParams(location.search);
+                          p.delete("compare");
+                          navigate({ pathname: location.pathname, search: p.toString() });
+                        }}
+                        className="rounded-full border border-brand/30 bg-white px-4 py-2 text-sm font-semibold text-brand transition hover:bg-brand/5"
+                      >
+                        Clear comparison
+                      </button>
+                    </div>
+                  </div>
+                )}
                 <div className="mt-6">
                   <ProductGrid products={results} />
                 </div>
@@ -122,7 +184,7 @@ export function Products() {
       </section>
       <section className="bg-bone px-5 py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <SectionHeading copy="This is not an ecommerce catalogue. It is a structured overview of the equipment universe DEMERZEL can organize into future product discovery." eyebrow="Equipment Universe" title="From observation to exploration." />
+          <SectionHeading copy="This catalogue presents the equipment families and categories represented in the DEMERZEL source material." eyebrow="Catalogue scope" title="From observation to exploration." />
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {areas.map(({ title, copy, icon: Icon }) => (
               <article className="rounded-[1.75rem] border border-ink/10 bg-white p-7 shadow-soft" key={title}>
@@ -139,8 +201,8 @@ export function Products() {
           <div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand/80">Optics Ecosystem</p>
-              <h2 className="mt-4 text-5xl font-black leading-tight md:text-6xl">Vanrakshak supports the DEMERZEL story.</h2>
-              <p className="mt-6 text-lg leading-8 text-white/70">The optics families are presented as part of the DEMERZEL umbrella, not as the entire corporate identity.</p>
+              <h2 className="mt-4 text-5xl font-black leading-tight md:text-6xl">Vanrakshak optics are part of the catalogue.</h2>
+              <p className="mt-6 text-lg leading-8 text-white/70">The product families shown here are grouped by their catalogue terminology and application context.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {opticsFamilies.map(([title, copy]) => (

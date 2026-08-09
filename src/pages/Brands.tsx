@@ -10,14 +10,14 @@ export function Brands() {
 
   return (
     <>
-      <SEO description="Discover catalogue brands represented in the DEMERZEL product set." title="Brands | DEMERZEL Enterprises" />
+      <SEO description="Browse the brands represented in the DEMERZEL catalogue and the product families linked to each brand." title="Brands | DEMERZEL Enterprises" />
       <section className="bg-navy px-5 py-20 text-white lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[1fr_.9fr] lg:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand/80">BRANDS</p>
-              <h1 className="mt-3 text-4xl font-black">Explore catalogue brands</h1>
-              <p className="mt-4 max-w-2xl text-sm text-white/80">Browse the equipment brands represented in DEMERZEL's product catalogue. Each entry links to brand product families and catalogue listings.</p>
+              <h1 className="mt-3 text-4xl font-black">Browse catalogue brands</h1>
+              <p className="mt-4 max-w-2xl text-sm text-white/80">Browse the brands represented in DEMERZEL's product catalogue and the product families linked to each one.</p>
             </div>
             <div className="overflow-hidden rounded-lg border border-white/8 bg-white/5">
               <img src={images.opticsWide} alt="Brands overview" className="h-48 w-full object-cover" />

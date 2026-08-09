@@ -23,14 +23,14 @@ export function BrandPage() {
 
   return (
     <>
-      <SEO title={`${brand} | DEMERZEL`} description={`Products from ${brand} shown in the DEMERZEL catalogue.`} />
+      <SEO title={`${brand} | DEMERZEL Enterprises`} description={`Browse ${brand} product families and catalogue entries available through DEMERZEL.`} />
       <main className="max-w-7xl mx-auto p-6">
         <section className={`${isVanrakshak ? "bg-navy text-white" : "bg-offwhite text-ink"} rounded-lg p-6 lg:p-10`}>
           <div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand/80">BRAND</p>
               <h1 className={`mt-3 text-4xl font-black ${isVanrakshak ? "text-white" : "text-ink"}`}>{brand}</h1>
-              <p className={`mt-4 max-w-2xl text-sm leading-7 ${isVanrakshak ? "text-white/75" : "text-charcoal/75"}`}>Products from the DEMERZEL catalogue for {brand}. Browse product families and catalogue entries sourced from the canonical dataset.</p>
+              <p className={`mt-4 max-w-2xl text-sm leading-7 ${isVanrakshak ? "text-white/75" : "text-charcoal/75"}`}>Browse {brand} product families and catalogue entries represented in the DEMERZEL source data.</p>
               <div className="mt-6">
                 <Link to={`/products?brand=${brand}`} className={`inline-flex items-center gap-3 rounded-full ${isVanrakshak ? "bg-brand px-5 py-3 text-ink" : "border border-ink/10 px-5 py-3 text-ink"}`}>EXPLORE PRODUCTS →</Link>
               </div>

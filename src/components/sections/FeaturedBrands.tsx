@@ -12,8 +12,8 @@ export function FeaturedBrands() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">Catalogue Brands</p>
-          <h2 className="mt-3 text-4xl font-black text-ink">Equipment from trusted manufacturers.</h2>
-          <p className="mt-4 text-sm text-charcoal/75">DEMERZEL features optical equipment and binoculars from leading manufacturers included in our current product catalogue.</p>
+          <h2 className="mt-3 text-4xl font-black text-ink">Brands in the current catalogue.</h2>
+          <p className="mt-4 text-sm text-charcoal/75">DEMERZEL presents the brands and product families represented in the current product catalogue.</p>
         </Reveal>
         <Reveal className="flex gap-6 overflow-x-auto py-4">
           {brands.map((b) => {

@@ -14,11 +14,11 @@ export function CapabilityGrid() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-olive">Built for the field</p>
-            <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-7xl">Built for the field.</h2>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-olive">Catalogue focus</p>
+            <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-7xl">Field equipment and optics.</h2>
           </div>
           <p className="max-w-2xl text-xl leading-9 text-charcoal/75">
-            DEMERZEL presents field technology across observation, navigation, monitoring and exploration, using catalogue-supported equipment areas as the foundation for future product discovery.
+            DEMERZEL presents field equipment across observation, navigation, monitoring and exploration, using catalogue-supported categories as the basis for product discovery.
           </p>
         </div>
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">

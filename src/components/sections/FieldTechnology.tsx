@@ -20,7 +20,7 @@ export function FieldTechnology() {
     <section className="bg-[#e9e2d5] px-5 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          copy="These categories are drawn from the source catalogue reference and kept at brand level for this phase."
+          copy="These categories are drawn from the source catalogue reference and grouped by equipment type and application." 
           eyebrow="Field technology"
           title="A broader equipment universe."
         />
