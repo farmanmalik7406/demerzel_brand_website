@@ -3,6 +3,8 @@ import { AssetMosaic } from "../components/sections/AssetMosaic";
 import { CapabilityNav } from "../components/sections/CapabilityNav";
 import { CapabilityStory } from "../components/sections/CapabilityStory";
 import { ContactCTA } from "../components/sections/ContactCTA";
+import EquipmentDiscovery from "../components/sections/EquipmentDiscovery";
+import FeaturedEquipment from "../components/sections/FeaturedEquipment";
 import { HomeHero } from "../components/sections/HomeHero";
 import { OpticsShowcase } from "../components/sections/OpticsShowcase";
 import { images } from "../lib/assets";
@@ -129,7 +131,10 @@ export function Home() {
         </div>
       </section>
       <OpticsShowcase />
+      <FeaturedEquipment />
+      <EquipmentDiscovery />
       <FeaturedBrands />
+      <VanrakshakFeature />
       <section className="bg-offwhite px-5 py-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-6">
@@ -143,8 +148,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
-      <VanrakshakFeature />
       <section className="bg-navy px-5 py-20 text-white lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
@@ -172,7 +175,6 @@ export function Home() {
         </div>
       </section>
       <AssetMosaic />
-      <OpticsShowcase />
       <ContactCTA />
     </>
   );

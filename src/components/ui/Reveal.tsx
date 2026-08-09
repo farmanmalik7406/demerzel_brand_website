@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
 
 type RevealProps = {
   as?: ElementType;
   className?: string;
   children: ReactNode;
   rootMargin?: string;
+  style?: CSSProperties;
   threshold?: number;
 };
 
@@ -13,6 +14,7 @@ export function Reveal({
   className = "",
   children,
   rootMargin = "0px 0px -140px 0px",
+  style,
   threshold = 0.15
 }: RevealProps) {
   const ref = useRef<HTMLElement>(null);
@@ -38,6 +40,7 @@ export function Reveal({
   return (
     <Component
       ref={ref as any}
+      style={style}
       className={`${className} transition-opacity duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
     >
       {children}
