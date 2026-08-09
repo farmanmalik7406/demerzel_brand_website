@@ -10,6 +10,7 @@ import { Industries } from "../pages/Industries";
 import { Legal } from "../pages/Legal";
 import { NotFound } from "../pages/NotFound";
 import { Products } from "../pages/Products";
+import { ProductCompare } from "../pages/ProductCompare";
 import { ProductDetail } from "../pages/ProductDetail";
 import { Projects } from "../pages/Projects";
 import { Resources } from "../pages/Resources";
@@ -23,6 +24,7 @@ export function AppRoutes() {
         <Route index element={<Home />} />
         <Route element={<About />} path="about" />
         <Route element={<Products />} path="products" />
+        <Route element={<ProductCompare />} path="products/compare" />
         <Route element={<ProductDetail />} path="products/:category/:slug" />
         <Route element={<Solutions />} path="solutions" />
         <Route element={<SolutionDetail />} path="solutions/:slug" />

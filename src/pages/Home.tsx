@@ -89,16 +89,16 @@ export function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-start">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-charcoal/70">About DEMERZEL</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-charcoal/70">Why DEMERZEL</p>
               <h2 id="brand-positioning-heading" className="mt-3 text-4xl font-black leading-tight text-ink">
-                Equipment for field observation and outdoor work.
+                A focused catalogue experience for technical buyers and field teams.
               </h2>
               <p className="mt-4 max-w-3xl text-lg leading-8 text-charcoal/75">
-                DEMERZEL presents a catalogue of optical equipment and binoculars from Vanrakshak, grouped by product family, application and technical specifications.
+                DEMERZEL is built to make catalogue decisions easier: clear product families, application relevance, and specification context for optics, observation and outdoor work.
               </p>
             </div>
             <div className="rounded-lg border border-ink/10 bg-white p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">Catalogue Signals</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">Catalogue metrics</p>
               <dl className="mt-5 grid gap-4">
                 <div className="flex items-center justify-between border-b border-ink/10 pb-3">
                   <dt className="text-sm text-charcoal/70">Products</dt>

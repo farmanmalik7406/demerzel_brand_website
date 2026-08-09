@@ -17,12 +17,14 @@ export function Contact() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-field">Contact</p>
-            <h1 className="mt-4 text-6xl font-black leading-tight md:text-8xl">Contact DEMERZEL.</h1>
-            <p className="mt-7 text-xl leading-9 text-white/72">Tell us which product family, application or specification you are reviewing.</p>
+            <h1 className="mt-4 text-6xl font-black leading-tight md:text-8xl">Talk to DEMERZEL's catalogue team.</h1>
+            <p className="mt-7 text-xl leading-9 text-white/72">
+              Share your mission objective, product family or specification need and we will respond with the most relevant catalogue guidance.
+            </p>
             <div className="mt-10 grid gap-4 text-white/70">
               <p>Email: contact@demerzel.example</p>
-              <p>Product enquiries: catalogue and specification support</p>
-              <p>Use the form for product information requests.</p>
+              <p>Catalogue enquiries and product guidance for optics, navigation and field systems.</p>
+              <p>Use the form to specify application, family, and decision context.</p>
             </div>
           </div>
           <form className="rounded-md bg-stone p-6 text-ink shadow-soft md:p-8" onSubmit={onSubmit}>
@@ -31,10 +33,11 @@ export function Contact() {
               <Field label="Email" name="email" type="email" />
               <Field label="Organization" name="organization" required={false} />
               <label className="grid gap-2 text-sm font-bold">
-                Field Context
-                <textarea className="min-h-36 rounded-md border border-ink/15 bg-white px-4 py-3 text-base font-normal" name="message" required />
+                Mission or application
+                <textarea className="min-h-36 rounded-md border border-ink/15 bg-white px-4 py-3 text-base font-normal" name="message" placeholder="Describe the operational use case, environment or sector." required />
               </label>
-              <Button type="submit" variant="dark">Contact DEMERZEL</Button>
+              <Field label="Product family or category" name="family" required={false} />
+              <Button type="submit" variant="dark">Request catalogue guidance</Button>
               {submitted && (
                 <p className="rounded-md border border-olive/30 bg-white px-4 py-3 font-semibold text-forest">
                   Thank you. Your enquiry has been captured for DEMERZEL's catalogue follow-up.

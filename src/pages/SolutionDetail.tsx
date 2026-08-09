@@ -21,14 +21,17 @@ export function SolutionDetail() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.85fr_1.15fr]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-olive">Mission</p>
-            <h2 className="mt-4 text-5xl font-black leading-tight text-ink">Application context.</h2>
+            <h2 className="mt-4 text-5xl font-black leading-tight text-ink">Catalogue-aligned application context.</h2>
             <p className="mt-6 text-xl leading-9 text-charcoal/75">{solution.challenge}</p>
+            <p className="mt-6 text-base leading-7 text-charcoal/75">
+              DEMERZEL maps this application area to catalogue categories, product families and capability language drawn from the source material, keeping the page descriptive and use-focused.
+            </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <Panel title="Technology Categories" items={solution.categories} />
-            <Panel title="DEMERZEL Capabilities" items={solution.capabilities} />
-            <Panel title="Relevant Catalogue Families" items={solution.families} />
-            <Panel title="Brand Position" items={["Observe", "Navigate", "Protect", "Explore"]} />
+            <Panel title="Application categories" items={solution.categories} />
+            <Panel title="Catalogue capabilities" items={solution.capabilities} />
+            <Panel title="Relevant catalogue families" items={solution.families} />
+            <Panel title="Operational focus" items={["Observe", "Navigate", "Protect", "Explore"]} />
           </div>
         </div>
       </section>
@@ -37,9 +40,9 @@ export function SolutionDetail() {
           <img alt="" className="min-h-[420px] rounded-md object-cover shadow-soft" loading="lazy" src={solution.image} />
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-field">Visual storytelling</p>
-            <h2 className="mt-4 text-5xl font-black leading-tight">A clear view of the application area.</h2>
+            <h2 className="mt-4 text-5xl font-black leading-tight">A clear view of catalogue application fit.</h2>
             <p className="mt-6 text-xl leading-9 text-white/70">
-              This page groups products and families by application using terminology from the current catalogue.
+              This page groups products and families by application using terminology from the current catalogue. It is descriptive and accountable, not speculative.
             </p>
           </div>
         </div>

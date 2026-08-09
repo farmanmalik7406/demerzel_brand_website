@@ -75,7 +75,7 @@ export function ProductComparison({ currentProduct }: Props) {
                 ))}
               </div>
               <a
-                href={`/products?compare=${[currentProduct.id, ...selectedProducts].join(",")}`}
+                href={`/products/compare?compare=${[currentProduct.id, ...selectedProducts].join(",")}`}
                 className="mt-3 block w-full text-center rounded-full bg-brand px-4 py-2 text-xs font-semibold text-ink transition hover:bg-brand/90"
               >
                 View Comparison

@@ -26,17 +26,17 @@ export function HomeHero({ image }: HomeHeroProps) {
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand/90">DEMERZEL ENTERPRISES / FIELD TECHNOLOGY</p>
           <h1 id="hero-heading" className="mt-3 text-3xl font-black leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            Vanrakshak binoculars and field equipment.
+            Catalogue-led field optics and operational equipment.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/85 md:text-lg">
-            DEMERZEL presents optical equipment and binoculars from Vanrakshak, grouped by product family, application and technical specification.
+            A curated product experience for technical buyers, operators and mission planners comparing optics, navigation and field systems across brands and applications.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link to="/products" className="inline-flex w-full max-w-[320px] items-center justify-center gap-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition hover:bg-brand/90 sm:w-auto">
-              EXPLORE PRODUCTS -&gt;
+              Browse catalogue →
             </Link>
             <Link to="/solutions" className="inline-flex w-full max-w-[320px] items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/6 sm:w-auto">
-              EXPLORE APPLICATIONS -&gt;
+              View application stories →
             </Link>
           </div>
         </div>
