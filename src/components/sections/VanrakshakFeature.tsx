@@ -18,7 +18,7 @@ export function VanrakshakFeature() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand">VANRAKSHAK</p>
             <h2 className="mt-3 text-4xl font-black text-ink">Optics families and field instruments.</h2>
-            <p className="mt-4 text-sm text-charcoal/75">A focused collection of optics families sourced from the catalogue. Explore product families, imagery and technical entries.</p>
+            <p className="mt-4 text-sm text-charcoal/75">A focused collection of Vanrakshak optical equipment organized by product family. Explore specifications, features and applications for each series.</p>
             <div className="mt-6 flex gap-3">
               <Link to="/brands/vanrakshak" className="inline-flex items-center gap-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink">EXPLORE VANRAKSHAK →</Link>
             </div>

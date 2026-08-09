@@ -29,7 +29,7 @@ export function FeaturedEquipment() {
               <div className="relative min-h-[380px] overflow-hidden bg-white/5">
                 <img
                   src={hero.images[0]?.url}
-                  alt={hero.images[0]?.alt || hero.name}
+                  alt={`${hero.name} - Vanrakshak ${hero.series} binocular for field observation and wildlife monitoring`}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035] group-hover:object-[52%_48%]"
                   loading="lazy"
                 />
@@ -54,7 +54,7 @@ export function FeaturedEquipment() {
                     ))}
                   </div>
                   <div className="mt-7 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.18em] text-field">
-                    Explore product <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                    Explore {hero.series} details <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@ export function FeaturedEquipment() {
                     <h3 className="mt-3 text-xl font-black leading-tight text-white">{product.name}</h3>
                     <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/65">{getProductCopy(product)}</p>
                     <div className="mt-5 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-field">
-                      View details <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" aria-hidden="true" />
+                      View {product.series} details <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" aria-hidden="true" />
                     </div>
                   </div>
                 </Link>

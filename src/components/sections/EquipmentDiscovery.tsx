@@ -42,7 +42,7 @@ function ProductTile({ product, index, active, onToggle }: { product: Product; i
         <Link to={getProductPath(product)} className={`relative block overflow-hidden bg-bone ${isLarge ? "min-h-[360px]" : "min-h-[260px]"} ${isWide ? "md:min-h-full" : ""}`}>
           <img
             src={product.images[0]?.url}
-            alt={product.images[0]?.alt || product.name}
+            alt={`${product.name} - Vanrakshak optical binocular for ${product.applications[0] || 'field observation'}`}
             className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04] group-hover:object-[52%_48%]"
             loading="lazy"
           />
@@ -82,7 +82,7 @@ function ProductTile({ product, index, active, onToggle }: { product: Product; i
               Preview <ChevronDown className={`h-4 w-4 transition ${active ? "rotate-180" : ""}`} aria-hidden="true" />
             </button>
             <Link to={getProductPath(product)} className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-brand">
-              View details <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
+              View {product.series || 'product'} details <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
 
@@ -123,12 +123,12 @@ export function EquipmentDiscovery() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="grid gap-10 lg:grid-cols-[.78fr_1.22fr] lg:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-brand">03 / EQUIPMENT</p>
-            <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">EQUIPMENT FOR THE FIELD.</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-brand">Equipment Discovery</p>
+            <h2 className="mt-4 text-5xl font-black leading-tight text-ink md:text-6xl">Field equipment by category and specification.</h2>
           </div>
           <div>
             <p className="max-w-3xl text-lg leading-8 text-charcoal/75">
-              DEMERZEL brings together specialist equipment families, catalogue brands and field systems for observation, patrol, wildlife work and technical exploration.
+              Browse optical equipment families from Vanrakshak, organized by product series, technical specifications and field applications.
             </p>
             <div className="mt-6 text-xs font-black uppercase tracking-[0.22em] text-charcoal/55">{filteredProducts.length} PRODUCTS</div>
           </div>
